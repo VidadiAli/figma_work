@@ -1,0 +1,460 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}
+
+main .area {
+    width: 100%;
+    height: 45vh;
+    background: url(films/nk.jpg) no-repeat center top;
+    background-size: cover;
+    box-shadow: inset 0 0 200px black;
+}
+
+main .area nav {
+    width: 80%;
+    margin: 4rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main .area nav .left {
+    width: 50%;
+    height: 3rem;
+    line-height: 3rem;
+    display: flex;
+    gap: 50px;
+}
+
+main .area nav .left>span {
+    text-transform: uppercase;
+    color: white;
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+main .area nav .left>ul {
+    display: flex;
+    gap: 20px;
+    background-color: rgb(149, 139, 139, .4);
+    padding: 0 20px;
+    border-radius: 10px;
+    border-top: 1px solid rgb(4, 110, 66);
+    border-bottom: 1px solid violet;
+}
+
+main .area nav .left>ul>li {
+    position: relative;
+}
+
+main .area nav .left>ul>li>a {
+    color: white;
+    font-size: .9rem;
+}
+
+main .area nav .left>ul>li>ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background-color: rgb(149, 139, 139, .4);
+    padding: 0 20px;
+    border-radius: 10px;
+    position: absolute;
+    transform: translateY(-10px);
+    display: none;
+    border-top: 1px solid rgb(4, 110, 66);
+    border-bottom: 1px solid violet;
+}
+
+main .area nav .left>ul>li>ul>li>a {
+    color: white;
+    font-size: .9rem;
+}
+
+main .area nav .left>ul>li:hover>ul {
+    display: block;
+}
+
+main .area nav .right {
+    width: 50%;
+    height: 3rem;
+    line-height: 3rem;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+main .area nav .right button {
+    height: 3rem;
+    line-height: 3rem;
+    border: 0;
+    outline: none;
+    border-top: 1px solid rgb(4, 110, 66);
+    border-bottom: 1px solid violet;
+    padding: 0 40px;
+    background-color: rgba(223, 221, 221, 0.2);
+    border-radius: 10px;
+    color: white;
+    font-family: serif;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    position: relative;
+}
+
+main .area nav .right button:nth-child(2) {
+    cursor: pointer;
+}
+
+main .area nav .right button>a {
+    background-color: red;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+}
+
+main .area nav .right button>a::before {
+    content: '';
+    position: absolute;
+    animation-name: lighting_watch;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 1.5s;
+    background-color: red;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+}
+
+@keyframes lighting_watch {
+    0% {
+        scale: 1;
+        opacity: 1;
+    }
+
+    33% {
+        scale: 1.4;
+        opacity: .8;
+    }
+
+    66% {
+        scale: 1.8;
+        opacity: .6;
+    }
+
+    100% {
+        scale: 2.2;
+        opacity: .3;
+    }
+}
+
+main .area nav .right button>.watch-list-div {
+    position: absolute;
+    width: 300px;
+    height: 250px;
+    background-color: rgb(149, 139, 139, .4);
+    border-radius: 10px;
+    border-top: 1px solid rgb(4, 110, 66);
+    border-bottom: 1px solid violet;
+    padding: 20px;
+    top: 3rem;
+    right: 0px;
+    display: none;
+}
+
+main .area nav .right button>.watch-list-div>.bx-x {
+    width: 25px;
+    height: 25px;
+    background-color: rgba(223, 221, 221, 0.8);
+    color: black;
+    font-size: 1.2rem;
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+main .area nav .right button>.watch-list-div>.watch-list {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 10px;
+}
+
+main .area nav .right button>.watch-list-div>.watch-list::-webkit-scrollbar {
+    width: 2px;
+}
+
+main .area nav .right button>.watch-list-div>.watch-list::-webkit-scrollbar-track {
+    background-color: rgb(100, 6, 86);
+}
+
+main .area nav .right button>.watch-list-div>.watch-list::-webkit-scrollbar-thumb {
+    background-color: cyan;
+}
+
+main .area nav .right button>.watch-list-div>.watch-list>.list-element {
+    width: 100%;
+    padding-right: 5px;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+    border-radius: 5px;
+}
+
+main .area nav .right button>.watch-list-div>.watch-list>.list-element>.li-child {
+    width: 105px;
+    height: 50px;
+}
+
+main .area nav .right button>.watch-list-div>.watch-list>.list-element>.li-child>.film-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px 0 0 5px;
+}
+
+main .area nav .right button>.watch-list-div>.watch-list>.list-element>.film-name {
+    color: white;
+    display: inline-block;
+    width: 160px;
+}
+
+main .area nav .right button>.watch-list-div>.watch-list>.list-element>.bx-x {
+    color: white;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+main>.carosel{
+    width: 80%;
+    height: 270px;
+    margin-left: 20%;
+    overflow: hidden;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    align-items: flex-end;
+    transform: translateY(-20px);
+}
+main>.carosel>i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: .5s;
+}
+main>.carosel>.left-i{
+    left: 0px;
+}
+main>.carosel>.right-i{
+    right: 0px;
+    opacity: .4;
+}
+main>.carosel>.carosel-child-mother{
+    width: 3000px;
+    height: 200px;
+    position: absolute;
+    display: flex;
+    gap: 20px;
+    transition: .5s;
+}
+main>.carosel>.carosel-child-mother>.carosel-child{
+    width: 270px;
+    height: 200px;
+    transition: .5s;
+    position: relative;
+}
+main>.carosel>.carosel-child-mother>.carosel-child:hover{
+    height: 270px;
+    transform: translateY(-70px);
+    border-top: 1px solid rgb(4, 110, 66);
+    border-bottom: 1px solid violet;
+    background-color: rgb(78, 78, 77);
+    border-radius: 12px 12px 0 0;
+}
+main>.carosel>.carosel-child-mother>.carosel-child>.carosel-child-image{
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+main>.carosel>.carosel-child-mother>.carosel-child>.carosel-child-name{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 5px;
+    color: white;
+    z-index: 99;
+}
+main>.carosel>.carosel-child-mother>.carosel-child>.carosel-child-name-hover{
+    width: 100%;
+    z-index: 100;
+    height: 70px;
+    background-color: rgb(78, 78, 77);
+    transition: .5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 5px;
+}
+main>.carosel>.carosel-child-mother>.carosel-child:hover>.carosel-child-name-hover{
+    position: absolute;
+    bottom: 0px;
+    height: 110px;
+}
+main>.carosel>.carosel-child-mother>.carosel-child>.carosel-child-name-hover>div:nth-child(1){
+    width: 100%;
+    color: white;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+}
+main>.carosel>.carosel-child-mother>.carosel-child>.carosel-child-name-hover>div:nth-child(2){
+    width: 100%;
+    color: white;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    font-size: 1.5rem;
+}
+
+.form-div {
+    width: 350px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    border-radius: 10px;
+}
+
+.form-div>form {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 40px;
+    z-index: 2;
+    color: white;
+    border-radius: 10px;
+}
+
+.form-div>form>section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-div>form>section>div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.form-div>form>section>div>input {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    padding-left: 20px;
+    border: none;
+    outline: none;
+}
+
+.form-div>form>section>div>label {
+    font-size: .65rem;
+}
+
+.form-div>form>section>div>input:focus {
+    border-top: 1px solid rgb(4, 110, 66);
+    border-bottom: 1px solid violet;
+}
+
+.form-div>form>section>div>input::placeholder {
+    color: white;
+}
+
+.form-div>form>a {
+    width: 100%;
+    display: block;
+    text-align: right;
+    font-size: .65rem;
+    color: white;
+}
+.form-div>form>.div-3{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.form-div>form>.div-3>button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 140px;
+    padding: 15px 0;
+    border-radius: 1rem;
+    text-align: left;
+    color: white;
+    font-family: serif;
+    cursor: pointer;
+}
+.form-div>form>.div-3>button:nth-child(2){
+    border-top: 1px solid rgb(4, 110, 66);
+    border-bottom: 1px solid violet;
+    text-align: center;
+}
+.form-div>.bx-x{
+    width: 35px;
+    height: 35px;
+    background-color: rgba(223, 221, 221, 0.8);
+    color: black;
+    font-size: 1.8rem;
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
