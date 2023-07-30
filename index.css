@@ -14,35 +14,64 @@ main {
     background-color: black;
 }
 
+
 main .area {
     width: 100%;
     height: 45vh;
     background: url(films/nk.jpg) no-repeat center top;
     background-size: cover;
-    box-shadow: inset 0 0 200px black;
+    position: relative;
+}
+main>.area::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0) 1%, black 95%);
 }
 
 main .area nav {
-    width: 80%;
-    margin: 4rem auto;
+    width: 62.5%;
+    margin: 0rem auto 4rem;
     display: flex;
+    gap: 50px;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
-
+main .area nav>span {
+    text-transform: uppercase;
+    color: white;
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin-top: 4rem;
+    z-index: 1000000;
+}
+main .area nav>.close-open{
+    position: relative;
+    margin-top: 4rem;
+    display: none;
+}
+main .area nav>.close-open>i{
+    text-transform: uppercase;
+    color: white;
+    font-weight: 900;
+    font-size: 2.5rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+}
 main .area nav .left {
-    width: 50%;
+    width: 40%;
     height: 3rem;
     line-height: 3rem;
     display: flex;
     gap: 50px;
-}
-
-main .area nav .left>span {
-    text-transform: uppercase;
-    color: white;
-    font-weight: 900;
-    font-size: 1.2rem;
+    justify-content: space-between;
+    margin-top: 4rem;
 }
 
 main .area nav .left>ul {
@@ -54,12 +83,15 @@ main .area nav .left>ul {
     border-top: 1px solid rgb(4, 110, 66);
     border-bottom: 1px solid violet;
 }
-
-main .area nav .left>ul>li {
+main .area nav .left>ul>.menu{
+    display: flex;
+    gap: 20px;
+}
+main .area nav .left>ul li {
     position: relative;
 }
 
-main .area nav .left>ul>li>a {
+main .area nav .left>ul li>a {
     color: white;
     font-size: .9rem;
 }
@@ -88,11 +120,12 @@ main .area nav .left>ul>li:hover>ul {
 }
 
 main .area nav .right {
-    width: 50%;
+    width: 60%;
     height: 3rem;
     line-height: 3rem;
     display: flex;
     gap: 20px;
+    margin-top: 4rem;
     justify-content: flex-end;
 }
 
@@ -176,6 +209,7 @@ main .area nav .right button>.watch-list-div {
     top: 3rem;
     right: 0px;
     display: none;
+    z-index: 1000000;
 }
 
 main .area nav .right button>.watch-list-div>.bx-x {
@@ -457,4 +491,91 @@ main>.carosel>.carosel-child-mother>.carosel-child>.carosel-child-name-hover>div
     text-align: center;
     border-radius: 50%;
     cursor: pointer;
+}
+
+
+
+@media(max-width: 1090px){
+    main .area nav{width: 80%;}
+    main .carosel{width: 90%; margin-left: 10%;}
+}
+
+
+
+@media(max-width: 990px){
+    main>.area>nav{
+        position: relative;
+    }
+    main>.area>nav>.close-open{
+        display: flex;
+    }
+    main>.area>nav>.close-open>i:first-child{
+        display: block;
+    }
+    main>.area>nav>.left, .right{
+        position: absolute;
+        left: 0;
+        top: 4rem;
+        height: 1.5rem;
+        line-height: 1.5rem;
+    }
+    main>.area>nav>.right{
+        top: 10rem;
+        justify-content: flex-start;
+        background-color: transparent;
+        flex-direction: column;
+        gap: 0;
+    }
+    main>.area>nav>.right>button{
+        background-color: transparent;
+        border: none;
+        padding-left: 0;
+        height: 1.5rem;
+        line-height: 1.5rem;
+    }
+
+    main>.area>nav>.left ul{
+        flex-direction: column;
+        gap: 26px;
+        background-color: transparent;
+        border: none;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        padding-left: 0;
+    }
+    main>.area>nav>.left>ul>.menu{
+        flex-direction: column;
+        gap: 0px;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        padding-left: 0;
+    }
+    main .area nav>.close-open>i{
+        right: 2.5%;
+    }
+}
+
+
+@media(max-width: 500px){
+    main .area nav{width: 95%;}
+    main .carosel{width: 97.5%; margin-left: 2.5%;}
+    main .area nav .right button{
+        position: static;
+    }
+    main .area nav .right button>.watch-list-div{
+        top: 50%;
+        left: 50%;
+        transform: translate(-25%, -25%);
+        background-color: rgb(149, 139, 139, .65);
+        width: 280px;
+    }
+    .form-div{width: 290px;}
+    .form-div>form{padding: 20px;}
+}
+
+@media(max-width: 340px){
+    main .area nav .right button>.watch-list-div{
+        transform: translate(-29%, -25%);
+    }
+    .form-div{width: 270px;}
 }
